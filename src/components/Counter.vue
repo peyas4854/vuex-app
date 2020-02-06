@@ -17,7 +17,7 @@
   <ul  v-for="(data1,id) in sateproducts" :key="id" >
     <li >{{ data1.name }}</li>
   </ul>
-<button @click="submit(5)">submit </button>
+<button @click="changecount(5)">submit </button>
 </div>
   </div>
 
@@ -27,8 +27,8 @@
 <script>
 // import { mapState } from 'vuex';
 
-//import { mapActions } from 'vuex';
-//import { mapGetters } from 'vuex'
+import { mapActions } from 'vuex';
+import { mapGetters } from 'vuex'
 
 
 export default {
@@ -57,13 +57,13 @@ export default {
     count(){
       return this.$store.state.count
     },
-    sateproducts(){
-      return this.$store.getters.sateproducts2;
-    }
+    // sateproducts(){
+    //   return this.$store.getters.sateproducts2;
+    // }
 
-    // ...mapGetters([
-    //   'sateproducts2'
-    // ])
+    ...mapGetters([
+      'sateproducts2'
+    ])
 
 
     
@@ -90,18 +90,18 @@ export default {
 
   // }),
   methods:{
-    submit(val){
-      console.log("submit");
+    // submit(val){
+    //   console.log("submit");
 
-      // this.$store.state.count++;
-      //this.$store.commit('updatecount');
-      this.$store.dispatch('changecount',val);
+    //   // this.$store.state.count++;
+    //   //this.$store.commit('updatecount');
+    //   //this.$store.dispatch('changecount',val);
 
-    }
+    // }
 
-    // ...mapActions([
-    //   'submit'
-    // ])
+    ...mapActions([
+      'changecount'
+    ])
   }
  
 }
