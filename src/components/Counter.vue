@@ -13,6 +13,7 @@
   </ul>
 <button @click="updatecount(5)">submit </button>
 </div>
+<todo/>
   </div>
 
   
@@ -21,13 +22,19 @@
 <script>
 
 // all map import 
-import { mapState } from 'vuex';
-import { mapActions } from 'vuex';
-import { mapGetters } from 'vuex'
-import { mapMutations } from  'vuex'
+// import { mapState } from 'vuex';
+// import { mapActions } from 'vuex';
+// import { mapGetters } from 'vuex'
+// import { mapMutations } from  'vuex'
+import { mapState, mapGetters, mapActions,mapMutations } from 'vuex'
+import todo from './todo.vue'
+
 
 
 export default {
+  components: {
+    todo,
+  },
   data(){
     return{
       title:"I am Counter vue ",
