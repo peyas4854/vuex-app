@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-
 export const store = new Vuex.Store({
 
     state:{
@@ -11,8 +10,8 @@ export const store = new Vuex.Store({
         count:5,
     },
     getters:{
+        //product array manupulate 
         sateproducts2(state){
-
             var saleproducts1 =  state.product.map(product =>{
               return{
                 name : '**'+ product+ '***',
@@ -22,17 +21,18 @@ export const store = new Vuex.Store({
           }
     },
     mutations:{
+        //update counter value
         updatecount(state){
+            console.log("via map mutation")
             state.count++;
         }
     },
     actions:{
+        //change counter value
         changecount(context,payload){
-            console.log("action",context);
-            console.log("payload",payload);
-
             setTimeout(function(){
                 context.commit('updatecount')
+                console.log("via map action",payload);
             },2000)
             
         }

@@ -1,24 +1,7 @@
 # vuex-counter
 ##branch two
+# MapState MapMutation MapState MapAction
 
-## Project setup
-```
-npm install
-```
+# Central Store js file 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration

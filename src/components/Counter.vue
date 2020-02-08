@@ -1,23 +1,17 @@
 <template>
   <div>
     <h2>{{ title }}</h2>
-
     <p>Clicked {{ count }} times! Count is {{ parity }}.</p>
-
     <h3>{{  parity   }}</h3>
-
 <div>
-  <ul  v-for="(data,id) in gettdata" :key="id+'a'" >
+  <ul  v-for="(data,id) in product" :key="id+'a'" >
     <li >{{ data }}</li>
   </ul>
 
-
-
-
-  <ul  v-for="(data1,id) in sateproducts" :key="id" >
+  <ul  v-for="(data1,id) in sateproducts2" :key="id" >
     <li >{{ data1.name }}</li>
   </ul>
-<button @click="changecount(5)">submit </button>
+<button @click="updatecount(5)">submit </button>
 </div>
   </div>
 
@@ -25,85 +19,64 @@
 </template>
 
 <script>
-// import { mapState } from 'vuex';
 
+// all map import 
+import { mapState } from 'vuex';
 import { mapActions } from 'vuex';
 import { mapGetters } from 'vuex'
+import { mapMutations } from  'vuex'
 
 
 export default {
   data(){
     return{
       title:"I am Counter vue ",
-      //count:0,
-      //product:[ 'one','two','three'],
     };
   },
 
   created(){
     console.log("counter vue ");
-    console.log("get data ",this.gettdata);
+    console.log("get data ",this.product);
     console.log("get data count ",this.count);
 
   },
- 
-  computed: {
-    parity() {
+
+  computed:{
+      parity() {
       return this.count % 2 === 0 ? 'even' : 'odd';
     },
-    gettdata(){
-      return this.$store.state.product
-    },
-    count(){
-      return this.$store.state.count
-    },
-    // sateproducts(){
-    //   return this.$store.getters.sateproducts2;
-    // }
-
+      // get all state data from store js 
+      ...mapState([
+      'count',
+      'product'
+    ]),
+    // get all getters data from store js 
     ...mapGetters([
       'sateproducts2'
     ])
 
-
-    
   },
-
-  // computed:mapState({
-  //     parity() {
-  //     return this.count % 2 === 0 ? 'even' : 'odd';
-  //   },
-  //     gettdata(){
-  //           return this.$store.state.product
-  //         },
-  //         count(){
-  //           return this.$store.state.count
-  //          },
-  //          sateproducts(){
-  //            return this.$store.getters.sateproducts2;
-
-        
-
-
-  //          }
-
-
-  // }),
   methods:{
     // submit(val){
-    //   console.log("submit");
+    //   console.log("submit",val);
 
-    //   // this.$store.state.count++;
+    //   //this.$store.state.count++;
     //   //this.$store.commit('updatecount');
     //   //this.$store.dispatch('changecount',val);
 
-    // }
+    // },
+    // call any map action in store js 
 
     ...mapActions([
       'changecount'
+    ]),
+        // call any map mutation in store js 
+
+    ...mapMutations([
+      'updatecount' // maps to this.increment()
+      
     ])
   }
- 
 }
 </script>>
 
