@@ -1,22 +1,22 @@
 <template>
   <div id="app">
-    <h1>Vuex Counter</h1>
-    <Counter/>
-    <!-- <todo/> -->
-     <!-- <router-view/> -->
+    <h1 class="text-center">Bookmark by vue</h1>
+    <todo />
   </div>
 </template>
-
 <script>
-import Counter from './components/Counter.vue'
-
-// import todo from './components/todo.vue'
-
+import todo from "./components/todo.vue";
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    Counter,
-    // todo,
+    todo
   }
-}
+};
 </script>
+
+<style scoped>
+h1.text-center {
+  display: flex;
+  justify-content: center;
+}
+</style>
